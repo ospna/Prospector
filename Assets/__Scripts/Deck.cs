@@ -143,8 +143,8 @@ public class Deck : MonoBehaviour {
 		cardNames = new List<string>();
 		string[] letters = new string[] {"C","D","H","S"};
 		foreach (string s in letters) {
-			for (int i =0; i<13; i++) {
-				cardNames.Add(s+(i+1));
+			for (int i = 0; i < 13; i++) {
+				cardNames.Add(s + (i + 1));
 			}
 		}
 		
@@ -156,12 +156,12 @@ public class Deck : MonoBehaviour {
 		GameObject tGO = null;
 		SpriteRenderer tSR = null;  // so tempted to make a D&D ref here...
 		
-		for (int i=0; i<cardNames.Count; i++) {
+		for (int i = 0; i < cardNames.Count; i++) {
 			GameObject cgo = Instantiate(prefabCard) as GameObject;
 			cgo.transform.parent = deckAnchor;
 			Card card = cgo.GetComponent<Card>();
 			
-			cgo.transform.localPosition = new Vector3(i%13*3, i/13*4, 0);
+			cgo.transform.localPosition = new Vector3(i%13*3, i/13*4, 0);   // stacks the cards in a nice row
 			
 			card.name = cardNames[i];
 			card.suit = card.name[0].ToString();
